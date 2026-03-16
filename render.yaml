@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: piebrowser-server
+    env: node
+    plan: free
+    buildCommand: npm install && npx playwright install chromium
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PLAYWRIGHT_BROWSERS_PATH
+        value: /opt/render/project/.browsers
